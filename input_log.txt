@@ -1,0 +1,324 @@
+  1  cd Templates
+  2  cd my terminal
+  3  cd myterminal
+  4  clear
+  5  python3 a.py
+  6  clear
+  7  cd Templates
+  8  ls
+  9  cat creatingwindow.o
+  10  clear
+  11  cd Templates
+  12  cat creatingwindow
+  13  clear
+  14  ./creatingwindow.o
+  15  creatingwindow.o
+  16  ./creatingwindow.o
+  17  clear
+  18  ls
+  19  ./creatingwindow
+  20  clear
+  21  ./creatingwindow
+  22  clear
+  23  cat output.tx
+  24  clear
+  25  cd Templates
+  26  cd templates
+  27  cd Templates
+  28  clear
+  29  brtbtr
+  30  trbtrbtr
+  31  btrbtrb
+  32  rtbgrfbgfb
+  33  fdbgdfbfdg
+  34  bgf
+  35  bfgb
+  36  fgb
+  37  gfb
+  38  vb
+  39  dfbdf
+  40  gdf
+  41  ghdfs
+  42  hfgh
+  43  rygn
+  44  gfhn
+  45  hgnm
+  46  tyumn
+  47  hgm
+  48  ghjkmyu
+  49  myu
+  50  muy
+  51  myu
+  52  muy
+  53  myu
+  54  muy
+  55  myu
+  56  muy
+  57  m
+  58  yum
+  59  uym
+  60  yum
+  61  yt
+  62  nfgh
+  63  hjfg
+  64  hjgf
+  65  cleatr
+  66  clear
+  67  cd Templates
+  68  clear
+  69  cd templates
+  70  cd Downloads
+  71  ls
+  72  ls -l
+  73  mkdir abc
+  74  clear
+  75  history
+  76  clear
+  77  echo "swagnik"
+  78  ls
+  79  echo "swagnik
+ghosj"
+  80  echo "swagnik"
+  81  clear
+  82  cd ..
+  83  cd Templaets
+  84  cd Templates
+  85  cd myterminal
+  86  ls
+  87  cat a.cpp
+  88  gcc a.cpp
+  89  g++ a.cpp
+  90  ./a.out
+  91  cd Templates
+  92  cd myterminal
+  93  clear
+  94  g++ a.cpp
+  95  ./a.out
+  96  g++ a.cpp
+  97  clear
+  98  ls
+  99  clear
+  100  cd Templates
+  101  cd myterminal
+  102  ls
+  103  cd ..
+  104  cd .
+  105  cd ..
+  106  ls
+  107  cd ..
+  108  cd
+  109  cd Templates
+  110  clear
+  111  cd ..
+  112  cd
+  113  cd templates
+  114  cd Templates
+  115  clear
+  116  cd ..
+  117  clear
+  118  cd ..
+  119  cd
+  120  clear
+  121  cd ..
+  122  cd
+  123  ls
+  124  clear
+  125  history
+  126  clear
+  127  cd Templates
+  128  cd
+  129  cd ..
+  130  ls
+  131  cd 
+  132  clear
+  133  cd Templates
+  134  cd myterminal
+  135  ls
+  136  cat largefile.txt
+  137  clear
+  138  cd 
+  139  cd Templates
+  140  cd 
+  141  cd Templates
+  142  cd myterminal
+  143  cd templates
+  144  cd
+  145  cd templates
+  146  cd Templates
+  147  clear
+  148  history
+  149  clear
+  150  cd templates
+  151  cd Templates
+  152  cd
+  153  cd Templates
+  154  cds myterminal
+  155  cd myterminal
+  156  ls
+  157  cat multitab.cpp
+  158  clear
+  159  ls
+  160  ls -l
+  161  ls -al
+  162  ls
+  163  ls -l
+  164  clear
+  165  cd
+  166  ls
+  167  ls -l
+  168  ls -al
+  169  clear
+  170  cd
+  171  cd ..
+  172  clear
+  173  cd ..
+  174  clear
+  175  ls
+  176  clear
+  177  cd
+  178  ls
+  179  clear
+  180  ls
+  181  ls -l
+  182  ls -al
+  183  ls
+  184  clear
+  185  ls
+  186  cat Templates.zip
+  187  clear
+  188  ls
+  189  clear
+  190  ls
+  191  ls -l
+  192  cat Templates
+  193  echo "hello"
+  194  echo "hello
+swagnik"
+  195  clear
+  196  clear
+  197  multiwatch ["ls","ls -l","pwd"]
+  198  multiWatch ["echo Hello", "date", "whoami"]
+  199  multiwatch ["ls","ls -l","pwd"]
+  200  multiWatch ["echo Hello", "date", "whoami"]
+  201  multiwatch ["ls","ls -l","pwd"]
+  202  multiWatch ["echo Hello", "date", "whoami"]
+  203  multiwatch ["ls","ls -l","pwd"]
+  204  multiWatch ["echo Hello", "date", "whoami"]
+  205  multiwatch ["ls","ls -l","pwd"]
+  206  multiWatch ["echo Hello", "date", "whoami"]
+  207  multiwatch ["ls","ls -l","pwd"]
+  208  multiWatch ["echo Hello", "date", "whoami"]
+  209  multiwatch ["ls","ls -l","pwd"]
+  210  multiWatch ["echo Hello", "date", "whoami"]
+  211  multiwatch ["ls","ls -l","pwd"]
+  212  multiWatch ["echo Hello", "date", "whoami"]
+  213  clear
+  214  multiWatch ["echo Hello", "date", "whoami"]
+  215  clear
+  216  multiWatch ["echo Hello", "date", "whoami"]
+  217  clear
+  218  multiWatch ["echo Hello", "date", "ls"]
+  219  mkdir test
+  220  clear
+  221  ls
+  222  pwd
+  223  g++ a.cpp
+  224  ./a.out
+  225  ls
+  226  pwd
+  227  cwd
+  228  clear
+  229  ls
+  230  clear
+  231  ls
+  232  cd ..
+  233  ls
+  234  cd Templates
+  235  ls
+  236  multiWatch ["echo Hello", "date", "ls"]
+  237  clear
+  238  multiWatch ["echo Hello", "date", "ls"]
+  239  clear
+  240  ls
+  241  cd Templates
+  242  clear
+  243  multiWatch ["echo Hello", "date", "ls"]
+  244  ls
+  245  cd computing_lab_p1
+  246  clear
+  247  g++ a.cpp
+  248  ./a.out
+  249  ls
+  250  cd computing_lab_p1
+  251  g++ a.cpp
+  252  ./a.out
+  253  multiWatch ["echo Hello", "date", "ls"]
+  254  clear
+  255  cd computing_lab_p1
+  256  g++ a.cpp
+  257  ./a.out
+  258  cd computing_lab_p1
+  259  g++ a.cpp
+  260  ./a.out
+  261  ls
+  262  clear
+  263  multiWatch ["echo Hello", "date", "ls"]
+  264  clear
+  265  cd computing_lab_p1
+  266  multiWatch ["./a.out", "date", "ls"]
+  267  cd computing_lab_p1
+  268  g++ a.cpp
+  269  ./a.out
+  270  cd computing_lab_p1
+  271  multiWatch ["./a.out", "date", "ls"]
+  272  clear
+  273  cd computing_lab_p1
+  274  multiWatch ["./a.out", "date", "ls"]
+  275  clear
+  276  ls
+  277  ls -al
+  278  clear
+  279  ls
+  280  cat input_log.txt
+  281  clear
+  282  cat input_log.txt
+  283  clear
+  284  cd templates
+  285  cd Templates
+  286  cd ..
+  287  ls
+  288  cd computing_lab_p1
+  289  clear
+  290  multiWatch ["./a.out", "date", "ls"]
+  291  clear
+  292  multiWatch ["./a.out", "date", "ls"]
+  293  clear
+  294  multiWatch ["./a.out", "date", "ls"]
+  295  ls
+  296  l
+  297  ls
+  298  clear
+  299  echo "hello"
+  300  ls
+  301  ls -l
+  302  cl
+  303  ls
+  304  clear
+  305  cd computing_lab_p1
+  306  ls
+  307  cat main.cpp
+  308  clear
+  309  echo "hello"
+  310  cat makefile
+  311  clear
+  312  cd computing_lab_p1
+  313  echo "hello"
+  314  clear
+  315  cat main
+  316  clear
+  317  cat main.cpp
+  318  clear
+  319  cd computing_lab_p1
+  320  ls
+  321  cd computing_lab_p1
+  
