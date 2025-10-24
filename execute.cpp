@@ -28,21 +28,13 @@
 #include "drawscreen.cpp"
 using namespace std;
 
-// -----------------------------
-// Forward / external Declarations
-// -----------------------------
-// Your project defines TabState somewhere (drawscreen.cpp). It must include at least:
-//   vector<string> screenBuffer;
-//   string cwd;
-//   string input;
-//   int currCursorPos;
-// etc.
+
 
 extern vector<TabState> tabs;
 
-// -----------------------------
+
 // Globals used by execute.cpp
-// -----------------------------
+
 static mutex current_pids_mutex;
 static vector<pid_t> current_child_pids; // guarded by current_pids_mutex
 
@@ -54,9 +46,9 @@ atomic<bool> cmd_running(false);       // true while execCommand or multiWatch i
 // Async-safe small flag for signal handler/UI -> execute communication
 static volatile sig_atomic_t sigint_request_flag = 0;
 
-// -----------------------------
+
 // Utility
-// -----------------------------
+
 static string getCurrentTime()
 {
     time_t now = time(nullptr);
@@ -67,20 +59,19 @@ static string getCurrentTime()
     return string(buf);
 }
 
-// -----------------------------
+
 // notify_sigint_from_ui
-// Called by UI (synchronously) when Ctrl+C is pressed.
-// This function must be safe to call from signal handler context.
-// -----------------------------
+
+
 extern "C" void notify_sigint_from_ui()
 {
     // Request stop of multiWatch and other loops
     mw_stop_requested.store(true);
 
-    // Set the async flag to be handled by handle_pending_sigint()
+    
     sigint_request_flag = 1;
 
-    // Also proactively kill any recorded child pids (best-effort, non-blocking)
+   
     {
         lock_guard<mutex> lk(current_pids_mutex);
         for (pid_t p : current_child_pids)
@@ -91,11 +82,7 @@ extern "C" void notify_sigint_from_ui()
     }
 }
 
-// -----------------------------
-// handle_pending_sigint
-// Call periodically from loops that read pipes so we forward the request
-// to the currently-recorded child processes.
-// -----------------------------
+
 static void handle_pending_sigint()
 {
     if (sigint_request_flag == 0)
@@ -579,15 +566,12 @@ void multiWatchThreaded_using_pipes(const vector<string> &cmds, int tab_index, c
         current_child_pids.clear();
     }
 
-    // === Restore previous screen ===
+    // Restore previous screen 
     T.screenBuffer = oldBuffer;
     // T.screenBuffer.push_back("^C");
 
     std::string sdisp = formatPWD(T.cwd);
-    // std::string prompt = (sdisp == "/")
-    //                          ? ("swagnik@myterm:" + sdisp + "$ ")
-    //                          : ("swagnik@myterm:~" + sdisp + "$ ");
-    // T.screenBuffer.push_back(prompt);
+  
 
     T.input.clear();
     T.currCursorPos = 0;
@@ -599,12 +583,7 @@ void multiWatchThreaded_using_pipes(const vector<string> &cmds, int tab_index, c
     sigint_request_flag = 0; //
 }
 
-// -----------------------------
-// execCommand
-// Runs the given command line (supports simple '|' pipelines).
-// Returns vector<string> of output lines (or error lines prefixed with "ERROR:").
-// This is blocking and will set cmd_running while active.
-// -----------------------------
+
 vector<string> execCommand(const string &cmd)
 {
     if (cmd.empty())
@@ -939,13 +918,3 @@ vector<string> execCommand(const string &cmd)
     return result;
 }
 
-// -----------------------------
-// execCommandInDir — like execCommand but runs in provided cwd (per-tab)
-// -----------------------------
-
-// -----------------------------
-// multiWatchThreaded_using_pipes
-// - Does NOT draw. It updates tabs[tab_index].screenBuffer and restores it on exit.
-// - Stops quickly when mw_stop_requested is set or notify_sigint_from_ui() is called.
-// - Sets mw_finished = true when done.
-// -----------------------------

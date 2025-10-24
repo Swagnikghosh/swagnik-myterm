@@ -23,7 +23,7 @@
 #include <limits.h>
 using namespace std;
 int len=0;
-// const string FILENAME = "./input_log.txt";
+
 string getPWD()
 {
      char cwd[512];

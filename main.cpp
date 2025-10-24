@@ -14,7 +14,7 @@ int main()
 
     if (home_path.empty())
     {
-        cerr << "❌ Could not determine home directory." << std::endl;
+        cerr << " Could not determine home directory." << std::endl;
         return 1;
     }
 

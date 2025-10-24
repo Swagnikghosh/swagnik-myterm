@@ -28,14 +28,11 @@
 
 using namespace std;
 
-// Include your drawscreen implementation (contains TabState, drawing helpers, globals)
+
 
 #include "execute.cpp"
 
-// The execute.cpp you have must provide these symbols:
-// - notify_sigint_from_ui(): async-safe notification from UI to execute logic
-// - multiWatchThreaded_using_pipes(...): the background watcher to run commands
-// - atomic flags: mw_stop_requested, mw_finished, cmd_running
+
 extern "C" void notify_sigint_from_ui();
 extern void multiWatchThreaded_using_pipes(const std::vector<std::string> &cmds, int tab_index);
 extern std::atomic<bool> mw_stop_requested;
@@ -50,19 +47,7 @@ extern int active_tab;
 extern std::vector<TabState> tabs;
 extern std::vector<std::string> inputs;
 
-// ------------------ add_tab (exact as you provided) ------------------
-// static void add_tab(const string &initial_cwd = "/")
-// {
-//     TabState t;
-//     t.cwd = initial_cwd;
-//     string sdisp = formatPWD(t.cwd);
-//     string prompt = (sdisp == "/") ? ("swagnik@myterm:" + sdisp + "$ ") : ("swagnik@myterm:~" + sdisp + "$ ");
-//     t.screenBuffer.push_back(prompt);
-//     t.inpIdx = (int)inputs.size() - 1;
-//     t.title = "Tab " + to_string((int)tabs.size() + 1);
-//     tabs.push_back(std::move(t));
-//     active_tab = (int)tabs.size() - 1;
-// }
+
 static Window create_window(int x, int y, int w, int h, int border)
 {
     XSetWindowAttributes xwa;
@@ -75,14 +60,6 @@ static Window create_window(int x, int y, int w, int h, int border)
     Window win = XCreateWindow(dpy, root, x, y, w, h, border, DefaultDepth(dpy, scr), InputOutput, DefaultVisual(dpy, scr), CWBackPixel | CWBorderPixel | CWEventMask, &xwa);
     return win;
 }
-// ------------------ helpers used in this file ------------------
-
-// Helper to store input history (assumes file and storeInput defined in your drawscreen set)
-
-// For selection clipboard paste handling
-// (PASTE_BUFFER atom usage is present in the user's pasted code)
-
-// ------------------ main run() ------------------
 
 void run()
 {
@@ -336,7 +313,7 @@ void run()
                     }
                 };
 
-                // === SEARCH INPUT OVERRIDE ===
+                //  SEARCH INPUT OVERRIDE 
                 // If in search mode, handle typing manually (bypass XIM status)
                 if (T.isSearching && !(isCtrl || isShift))
                 {
@@ -706,8 +683,7 @@ void run()
                         // Request stop from execute.cpp (async-safe)
                         notify_sigint_from_ui();
 
-                        // Give watcher thread a short timeout to finish its cleanup & restore buffer.
-                        // We poll mw_finished (set by execute.cpp when multiWatch ends).
+                        
                         for (int i = 0; i < 10; ++i)
                         {
                             if (mw_finished.load())
@@ -867,7 +843,7 @@ void run()
                                     break;
                                 }
 
-                                // multiWatch: parse commands inside [ ... ] and spawn thread
+                               
                                 if (trimmed.rfind("multiWatch", 0) == 0)
                                 {
                                     size_t start = T.input.find('[');
@@ -891,7 +867,7 @@ void run()
                                         }
                                         else
                                         {
-                                            // ✅ Copy old screen buffer safely
+                                            //  Copy old screen buffer safely
                                             vector<string> oldBuffer;
                                             oldBuffer.insert(oldBuffer.end(), T.screenBuffer.begin(), T.screenBuffer.end());
 
@@ -903,7 +879,7 @@ void run()
                                             mw_stop_requested.store(false);
                                             mw_finished.store(false);
 
-                                            // ✅ Pass oldBuffer to thread so it can restore later
+                                            // Pass oldBuffer to thread so it can restore later
                                             thread([cmds, tab_index = active_tab, oldBuffer]()
                                                    { multiWatchThreaded_using_pipes(cmds, tab_index, oldBuffer); })
                                                 .detach();
@@ -1082,7 +1058,7 @@ void run()
             } // end switch(event.type)
         } // end XPending loop
 
-        // ===== multiWatch finished handling =====
+        // multiWatch finished handling 
         if (mw_finished.load())
         {
             // execute.cpp is expected to have restored the tab's screenBuffer.

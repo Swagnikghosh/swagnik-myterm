@@ -321,4 +321,27 @@ swagnik"
   319  cd computing_lab_p1
   320  ls
   321  cd computing_lab_p1
-  
+    322  cd
+  323  ls
+  324  mkdir shreyanterm
+  325  cd shreyanterm
+  326  clear
+  327  git clone https://github.com/Swagnikghosh/myterminal.git
+  328  ls
+  329  cd myterminal
+  330  make
+  331  ./termgui
+  332  ls
+  333  cd ..
+  334  ls
+  335  cd ..
+  336  ls
+  337  cd shreyanterm
+  338  git clone https://github.com/shreyan-naskar/MyTerminal.git
+  339  ls
+  340  cd Myterminal
+  341  cd MyTerminal
+  342  make
+  343  ./termgui /home/swagnik
+  344  clear
+  345  ./termgui /home/swagnik

@@ -340,7 +340,7 @@ static vector<TabChromePos> draw_tabs(Window win, GC gc, XFontStruct *font)
     int radius = 10;
     int gap = 6;
 
-    // --- Reserve space for "+" button ---
+    //  Reserve space for "+" button 
     int plus_w = 50;
     int available_w = win_w - plus_w - (gap * (int)tabs.size()) - 20;
     int total_tabs = max(1, (int)tabs.size());
@@ -352,11 +352,11 @@ for (size_t i = 0; i < tabs.size(); ++i)
     int x = 10 + i * (tab_w + gap);
     bool active = ((int)i == active_tab);
     bool hovered = ((int)i == hovered_close_tab || 
-                    (hovered_tab_index == (int)i)); // <-- add hovered_tab_index global
+                    (hovered_tab_index == (int)i)); 
 
     unsigned long active_bg = 0xF7F9FF;
     unsigned long inactive_bg = 0x2C2F36;
-    unsigned long hover_bg = 0x3A3F47; // slightly lighter dark gray for hover
+    unsigned long hover_bg = 0x3A3F47; 
     unsigned long active_text = 0x202020;
     unsigned long inactive_text = 0xEAEAEA;
     unsigned long border_color = 0x000000;
@@ -365,7 +365,7 @@ for (size_t i = 0; i < tabs.size(); ++i)
     unsigned long bg = active ? active_bg : (hovered ? hover_bg : inactive_bg);
     unsigned long textc = active ? active_text : inactive_text;
 
-    // === Rounded Tab Background ===
+    //  Rounded Tab Background 
     XSetForeground(dpy, gc, bg);
 
     // Four rounded corners
@@ -378,7 +378,7 @@ for (size_t i = 0; i < tabs.size(); ++i)
     XFillRectangle(dpy, win, gc, x + radius, y, tab_w - 2 * radius, tab_h);
     XFillRectangle(dpy, win, gc, x, y + radius, tab_w, tab_h - 2 * radius);
 
-    // === Hover Outline Effect ===
+    // Hover Outline Effect 
     if (hovered && !active)
     {
         XSetForeground(dpy, gc, 0x02CCFF); // cyan-blue border glow on hover
@@ -392,10 +392,10 @@ for (size_t i = 0; i < tabs.size(); ++i)
         XDrawArc(dpy, win, gc, x, y + tab_h - radius * 2, radius * 2, radius * 2, 180 * 64, 90 * 64);
     }
 
-    // === Active tab underline (shorter, rounded, slightly lower) ===
+    //  Active tab underline (shorter, rounded, slightly lower) 
     if (active)
     {
-        XSetForeground(dpy, gc, 0xFF0000); // red underline
+        XSetForeground(dpy, gc, 0xFF0000); 
 
         int line_h = 4;
         int inset_y = -1;
@@ -424,7 +424,7 @@ for (size_t i = 0; i < tabs.size(); ++i)
                  270 * 64, 180 * 64);
     }
 
-    // === Border (rounded outline) ===
+    //  Border (rounded outline) 
     XSetForeground(dpy, gc, border_color);
     XDrawLine(dpy, win, gc, x + radius, y, x + tab_w - radius, y);
     XDrawLine(dpy, win, gc, x + tab_w, y + radius, x + tab_w, y + tab_h - radius);
@@ -435,7 +435,7 @@ for (size_t i = 0; i < tabs.size(); ++i)
     XDrawArc(dpy, win, gc, x + tab_w - radius * 2, y + tab_h - radius * 2, radius * 2, radius * 2, 270 * 64, 90 * 64);
     XDrawArc(dpy, win, gc, x, y + tab_h - radius * 2, radius * 2, radius * 2, 180 * 64, 90 * 64);
 
-    // === Label Text ===
+    //  Label Text 
     XCharStruct overall;
     int dir, ascent, descent;
     XTextExtents(font, label.c_str(), (int)label.size(), &dir, &ascent, &descent, &overall);
@@ -444,7 +444,7 @@ for (size_t i = 0; i < tabs.size(); ++i)
     XSetForeground(dpy, gc, textc);
     XDrawString(dpy, win, gc, text_x, text_y, label.c_str(), (int)label.size());
 
-    // === Close Button ===
+    //  Close Button 
     int close_size = 18;
     int close_x = x + tab_w - close_size - 8;
     int close_y = y + (tab_h - close_size) / 2;
@@ -469,13 +469,13 @@ for (size_t i = 0; i < tabs.size(); ++i)
 
 
 
-    // --- "+" button ---
+    //  "+" button 
     int plus_x = win_w - plus_w - 10;
     int plus_y = y;
-    unsigned long plus_bg = hovered_plus ? 0x02CCFF : 0x0EC3F0; // darker on hover
-    int corner = radius;                                        // use your existing radius variable
+    unsigned long plus_bg = hovered_plus ? 0x02CCFF : 0x0EC3F0; 
+    int corner = radius;                                        
 
-    // --- Draw filled rounded rectangle for "+" button ---
+    // Draw filled rounded rectangle for "+" button 
     XSetForeground(dpy, gc, plus_bg);
 
     // top left arc
@@ -495,7 +495,7 @@ for (size_t i = 0; i < tabs.size(); ++i)
     // right vertical body
     XFillRectangle(dpy, win, gc, plus_x + plus_w - corner, plus_y + corner, corner, tab_h - 2 * corner);
 
-    // --- Draw border outline with rounded corners ---
+    //  Draw border outline with rounded corners 
     XSetForeground(dpy, gc, 0x000000);
 
     // top line (between arcs)
@@ -513,7 +513,7 @@ for (size_t i = 0; i < tabs.size(); ++i)
     XDrawArc(dpy, win, gc, plus_x + plus_w - corner * 2, plus_y + tab_h - corner * 2, corner * 2, corner * 2, 270 * 64, 90 * 64);
     XDrawArc(dpy, win, gc, plus_x, plus_y + tab_h - corner * 2, corner * 2, corner * 2, 180 * 64, 90 * 64);
 
-    // --- Centered "+" ---
+    // Centered "+" 
     string plus = "+";
     XCharStruct p_overall;
     int dir_p, ascent_p, descent_p;
@@ -582,4 +582,4 @@ static void add_tab(const string &initial_cwd = "/")
     active_tab = (int)tabs.size() - 1;
 }
 
-// ------------- main loop (adapted from your run()) -------------
+
