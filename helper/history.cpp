@@ -23,7 +23,7 @@
 #include <limits.h>
 using namespace std;
 
-const string FILENAME = "./input_log.txt";
+const string FILENAME = "./history.txt";
 
 int commonPrefixLength(const string &a, const string &b)
 {
@@ -106,7 +106,9 @@ vector<string> loadInputs()
 {
     ifstream in(FILENAME);
     vector<string> inputs;
-    if (!in) return inputs;
+    if (!in) {
+        return inputs;
+    }
 
     string line;
     while (getline(in, line))

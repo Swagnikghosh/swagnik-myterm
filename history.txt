@@ -345,3 +345,4 @@ swagnik"
   343  ./termgui /home/swagnik
   344  clear
   345  ./termgui /home/swagnik
+  346  ls
